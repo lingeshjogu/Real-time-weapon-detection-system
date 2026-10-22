@@ -1,0 +1,7 @@
+# Put your dataset in datasets/weapons/ (YOLO format) and edit class names to match
+path: datasets/weapons
+train: images/train
+val: images/val
+names:
+  0: gun
+  1: knife

@@ -1,0 +1,24 @@
+model:
+  weights: yolov8n.pt        # demo model (detects knife/scissors/bat). Use models/best.pt after training
+  conf: 0.45
+  imgsz: 640
+  device: auto               # auto | cpu | 0 (GPU id)
+
+# Any detected class whose name is in this list is treated as a weapon
+weapon_classes: [knife, scissors, baseball bat, gun, pistol, handgun, rifle, weapon, firearm]
+
+source: 0                    # 0 = webcam | "video.mp4" | "rtsp://user:pass@ip:554/stream"
+
+confirm:                     # temporal confirmation = fewer false alarms
+  window: 8                  # look at the last N frames
+  frames_required: 5         # weapon must appear in at least K of them
+
+zone: null                   # restricted zone, normalised [x1,y1,x2,y2] e.g. [0.1,0.1,0.9,0.9]
+
+alerts:
+  cooldown_sec: 10
+  sound: true
+  telegram:
+    enabled: false
+    token: ""
+    chat_id: ""
